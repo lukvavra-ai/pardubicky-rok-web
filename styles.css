@@ -1,0 +1,70 @@
+:root { color-scheme: light; --red: #b8202d; --red-dark: #8e1620; --ink: #242126; --muted: #625b61; --line: #e6dfe2; --soft: #fff5f5; }
+* { box-sizing: border-box; }
+html { scroll-behavior: auto; }
+body { margin: 0; background: #fff; color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 17px; line-height: 1.65; }
+a { color: var(--red-dark); text-decoration-thickness: 1px; text-underline-offset: .2em; overflow-wrap: anywhere; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 3px solid var(--red); outline-offset: 4px; border-radius: 2px; }
+.skip { position: absolute; left: 1rem; top: -6rem; z-index: 10; padding: .65rem 1rem; background: #fff; border: 2px solid var(--red); }
+.skip:focus { top: .5rem; }
+.wrap { width: min(100% - 3rem, 1040px); margin-inline: auto; }
+.header { border-top: 5px solid var(--red); border-bottom: 1px solid var(--line); }
+.header-row { display: flex; align-items: center; justify-content: space-between; gap: 1.2rem 2rem; padding-block: 1.2rem; }
+.brand { display: inline-flex; align-items: center; gap: .75rem; color: var(--ink); text-decoration: none; font-weight: 750; }
+.brand-mark { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; background: var(--red); color: #fff; border-radius: .5rem; font-size: .85rem; letter-spacing: .04em; flex: none; }
+nav { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.4rem; font-size: .92rem; }
+nav a { display: inline-flex; align-items: center; min-height: 44px; }
+nav a[aria-current="page"] { font-weight: 700; }
+main { padding-block: 3.3rem 4rem; }
+.eyebrow { margin: 0 0 .6rem; color: var(--red); font-size: .82rem; line-height: 1.4; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
+h1, h2, h3 { line-height: 1.2; text-wrap: balance; }
+h1 { font-size: clamp(2.2rem, 5.7vw, 3.8rem); letter-spacing: -.04em; margin: 0 0 1rem; }
+h2 { font-size: 1.45rem; letter-spacing: -.015em; margin: 0 0 .8rem; }
+h3 { font-size: 1.08rem; margin: 1.5rem 0 .5rem; }
+p { margin: 0 0 1rem; }
+p:last-child { margin-bottom: 0; }
+.intro { max-width: 720px; margin-bottom: 2.2rem; }
+.lead { font-size: 1.16rem; color: var(--muted); max-width: 62ch; }
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 3rem; align-items: start; }
+.content { min-width: 0; }
+.section { border-top: 1px solid var(--line); padding-top: 1.6rem; margin-top: 1.8rem; }
+.section:first-child { margin-top: 0; }
+.steps { padding-left: 1.35rem; margin: 0; }
+.steps li { padding-left: .35rem; margin-block: .65rem; }
+li::marker { color: var(--red); font-weight: 700; }
+ul { padding-left: 1.3rem; }
+li + li { margin-top: .4rem; }
+.contact { background: var(--soft); border: 1px solid #edc8cc; border-top: 4px solid var(--red); padding: 1.3rem; border-radius: .4rem; }
+.contact p { font-size: .95rem; }
+.contact h2 { font-size: 1.2rem; }
+.contact .email { font-weight: 650; }
+.small { font-size: .88rem; color: var(--muted); }
+.prose { max-width: 740px; }
+.prose .section { padding-top: 1.6rem; }
+.note { padding: 1rem 1.15rem; border-left: 3px solid var(--red); background: var(--soft); }
+.footer { border-top: 1px solid var(--line); padding-block: 1.6rem 2rem; color: var(--muted); font-size: .85rem; }
+.footer-row { display: flex; justify-content: space-between; align-items: start; gap: 1.5rem 3rem; }
+.footer p { max-width: 64ch; }
+.footer a { flex: none; }
+@media (max-width: 760px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .contact { max-width: none; }
+  main { padding-block: 2.25rem 3rem; }
+  .header-row { align-items: flex-start; flex-direction: column; gap: .4rem; padding-block: 1rem .6rem; }
+  .footer-row { flex-direction: column; gap: .5rem; }
+}
+@media (max-width: 420px) {
+  .wrap { width: calc(100% - 2rem); }
+  body { font-size: 16px; }
+  h1 { font-size: 2.2rem; }
+  nav { gap: .4rem 1.2rem; }
+}
+@media print {
+  .skip, nav, .brand-mark { display: none; }
+  .wrap { width: 100%; }
+  main { padding-block: 1rem; }
+  .layout { display: block; }
+  .contact { margin-top: 1rem; }
+  a { color: inherit; }
+  .section, .contact { break-inside: avoid; }
+}
